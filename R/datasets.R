@@ -27,9 +27,9 @@
 #' \donttest{
 #' data(sim_data)
 #' X_sim_data_train <- sim_data[1:800,2:11]
-#' C_sim_data_train <- sim_data$status[1:800,1]
-#' X_sim_data_test <- micro.censure$survyear[801:1000,2:11]
-#' C_sim_data_test <- micro.censure$status[801:1000,1]
+#' C_sim_data_train <- sim_data$status[1:800]
+#' X_sim_data_test <- sim_data[801:1000,2:11]
+#' C_sim_data_test <- sim_data$status[801:1000]
 #' rm(X_sim_data_train,C_sim_data_train,X_sim_data_test,C_sim_data_test)
 #' }
 #' 
