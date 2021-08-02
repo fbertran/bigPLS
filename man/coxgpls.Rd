@@ -176,11 +176,11 @@ X_train_micro_df <- data.frame(X_train_micro)
 Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
 
-(cox_spls_sgpls_fit=coxspls_sgpls(X_train_micro,Y_train_micro,C_train_micro,
+(coxgpls_fit=coxgpls(X_train_micro,Y_train_micro,C_train_micro,
 ncomp=6,keepX=rep(4,6)))
-(cox_spls_sgpls_fit=coxspls_sgpls(~X_train_micro,Y_train_micro,C_train_micro,
+(coxgpls_fit=coxgpls(~X_train_micro,Y_train_micro,C_train_micro,
 ncomp=6,keepX=rep(4,6)))
-(cox_spls_sgpls_fit=coxspls_sgpls(~.,Y_train_micro,C_train_micro,ncomp=6,
+(ccoxgpls_fit=coxgpls(~.,Y_train_micro,C_train_micro,ncomp=6,
 dataXplan=X_train_micro_df,keepX=rep(4,6)))
 
 rm(X_train_micro,Y_train_micro,C_train_micro,cox_spls_sgpls_fit)

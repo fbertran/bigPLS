@@ -1,5 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -7,7 +8,8 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%",
   dpi=300,fig.width=7,
-  fig.keep="all"
+  fig.keep="all",
+  eval=FALSE
 )
 ```
 
@@ -94,7 +96,7 @@ data(dCox_sim)
 
 ### Compute deviance residuals with some options.
 
-```{r devianceresiduals, cache=FALSE}
+```{r devianceresiduals2, cache=FALSE}
 with(dCox_sim,head(computeDR(time,status,plot=TRUE)))
 ```
 
@@ -118,7 +120,7 @@ rm(cox_gpls_fit,cox_gpls_fit2,cox_gpls_fit3)
 ```
 
 ### cv.coxgpls
-```{r cvcoxgplsDR, warning=FALSE, cache=TRUE}
+```{r cvcoxgpls, warning=FALSE, cache=TRUE}
 set.seed(123456)
 (cv.coxgpls.res=cv.coxgpls(list(x=X_train_micro,time=Y_train_micro, status=C_train_micro),nt=10,ind.block.x=c(3,10,15)))
 ```
@@ -222,7 +224,7 @@ rm(cox_DKsgplsDR_fit)
 
 ### cv.coxDKgplsDR
 
-```{r cvcoxDKgplsDR, warning=FALSE, cache=TRUE}
+```{r cvcoxDKgplsDR2, warning=FALSE, cache=TRUE}
 set.seed(123456)
 
 (cv.coxDKgplsDR.res=cv.coxDKgplsDR(list(x=X_train_micro,time=Y_train_micro, status=C_train_micro),nt=10,ind.block.x=c(3,10,15), alpha.x = rep(0.95, 10)))
@@ -437,13 +439,7 @@ seq_range(c(3, 10))
 
 X <- big_attachExtdata()
 
-
-
-
-
 test <- big_parallelize(X, p.FUN = partialbigSurvSGD, p.combine = 'rbind', ncores = 2)
-  
-  
 ```
 
 
@@ -474,4 +470,3 @@ bigSurvSGD
 
 # SGD cox
 coxphSGD
-

@@ -1,6 +1,6 @@
 ---
-title: "Original examples"
-author: "Document Author"
+title: "Some examples"
+author: "Frederic Bertrand"
 date: "`r Sys.Date()`"
 output:
   prettydoc::html_pretty:
@@ -15,8 +15,6 @@ install.packages("Epi")
 ```{r}
 library(sgPLS)
 library(plsRcox)
-
-
 ```
 
 ## Deviance residuals
@@ -44,16 +42,9 @@ result.gPLS$group.size.X
 result.gPLS$group.size.Y
 
 tt_pls <- data.frame(model.gPLS$variates$X)
-if (mf2$ncomp > 0) {
+if (model.gPLS$ncomp > 0) {
         colnames(tt_pls) <- paste("dim", 1:ncol(tt_pls), sep = ".")
 }
-
-
-
-
-
-
-
 ```
 
 
@@ -61,7 +52,6 @@ if (mf2$ncomp > 0) {
 
 ```{r}
 library(sgPLS)
-
 library(plsRcox)
 data(micro.censure)
 data(Xmicro.censure_compl_imp)
@@ -71,7 +61,7 @@ X_train_micro_df <- data.frame(X_train_micro)
 Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
 
-Y_DR <- computeDR(X_train_micro,Y_train_micro,C_train_micro,max.steps=6, use.Gram=FALSE,scaleX=TRUE)
+Y_DR <- computeDR(Y_train_micro,C_train_micro)
 
 #### sgPLS model
 model.sgPLS <- sgPLS(X_train_micro_df, Y_DR, ncomp = 2, mode = "regression", keepX = c(4, 4), keepY = 4, ind.block.x = 1, alpha.x = c(0.95, 0.95), alpha.y = c(0.95, 0.95))
@@ -100,7 +90,7 @@ X_train_micro_df <- data.frame(X_train_micro)
 Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
 
-Y_DR <- computeDR(X_train_micro,Y_train_micro,C_train_micro,max.steps=6, use.Gram=FALSE,scaleX=TRUE)
+Y_DR <- computeDR(Y_train_micro,C_train_micro)
 
 library(bigmemory)
 X.bm <- as.big.matrix(X_train_micro_df)
@@ -126,7 +116,7 @@ X_train_micro_df <- data.frame(X_train_micro)
 Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
 
-Y_DR <- computeDR(X_train_micro,Y_train_micro,C_train_micro,max.steps=6, use.Gram=FALSE,scaleX=TRUE)
+Y_DR <- computeDR(Y_train_micro,C_train_micro)
 
 library(bigmemory)
 X.bm <- as.big.matrix(X_train_micro_df)
@@ -152,7 +142,7 @@ X_train_micro_df <- data.frame(X_train_micro)
 Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
 
-Y_DR <- computeDR(X_train_micro,Y_train_micro,C_train_micro,max.steps=6, use.Gram=FALSE,scaleX=TRUE)
+Y_DR <- computeDR(Y_train_micro,C_train_micro)
 
 library(bigmemory)
 X.bm <- as.big.matrix(X_train_micro_df)
@@ -178,7 +168,7 @@ X_train_micro_df <- data.frame(X_train_micro)
 Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
 
-Y_DR <- computeDR(X_train_micro,Y_train_micro,C_train_micro,max.steps=6, use.Gram=FALSE,scaleX=TRUE)
+Y_DR <- computeDR(Y_train_micro,C_train_micro)
 
 library(bigmemory)
 X.bm <- as.big.matrix(X_train_micro_df)
@@ -193,7 +183,7 @@ round(pred.fit$Beta,3)
 ```
 
 
-```{r}
+```{r, eval=FALSE}
 bigscale
 data(survData, package="bigSurvSGD")
 debug(bigscale)

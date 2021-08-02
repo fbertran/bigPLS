@@ -105,11 +105,11 @@
 #' Y_train_micro <- micro.censure$survyear[1:80]
 #' C_train_micro <- micro.censure$DC[1:80]
 #' 
-#' (cox_spls_sgpls_fit=coxspls_sgpls(X_train_micro,Y_train_micro,C_train_micro,
+#' (coxgpls_fit=coxgpls(X_train_micro,Y_train_micro,C_train_micro,
 #' ncomp=6,keepX=rep(4,6)))
-#' (cox_spls_sgpls_fit=coxspls_sgpls(~X_train_micro,Y_train_micro,C_train_micro,
+#' (coxgpls_fit=coxgpls(~X_train_micro,Y_train_micro,C_train_micro,
 #' ncomp=6,keepX=rep(4,6)))
-#' (cox_spls_sgpls_fit=coxspls_sgpls(~.,Y_train_micro,C_train_micro,ncomp=6,
+#' (ccoxgpls_fit=coxgpls(~.,Y_train_micro,C_train_micro,ncomp=6,
 #' dataXplan=X_train_micro_df,keepX=rep(4,6)))
 #' 
 #' rm(X_train_micro,Y_train_micro,C_train_micro,cox_spls_sgpls_fit)
@@ -156,13 +156,13 @@ coxgpls.formula <-
       return(model.matrix(mt0, mf0, 
                           contrasts.arg=
                             contrasts.arg))
-    ind.block.x <- sapply(ind.block.x, function(x) {sum(attr(bbb,"assign") <= x)})
+#    ind.block.x <- sapply(ind.block.x, function(x) {sum(attr(bbb,"assign") <= x)})
     weights <- as.vector(model.weights(mf0))
     if (!is.null(weights) && !is.numeric(weights)) 
       stop("'weights' must be a numeric vector")
     if (!is.null(weights) && any(weights < 0)) 
       stop("negative weights not allowed")
-    NextMethod("coxpls")
+    NextMethod("coxgpls")
   }
 
 

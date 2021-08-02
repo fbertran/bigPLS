@@ -156,13 +156,13 @@ coxspls_sgpls.formula <-
       return(model.matrix(mt0, mf0, 
                           contrasts.arg=
                             contrasts.arg))
-    ind.block.x <- sapply(ind.block.x, function(x) {sum(attr(bbb,"assign") <= x)})
+#    ind.block.x <- sapply(ind.block.x, function(x) {sum(attr(bbb,"assign") <= x)})
     weights <- as.vector(model.weights(mf0))
     if (!is.null(weights) && !is.numeric(weights)) 
       stop("'weights' must be a numeric vector")
     if (!is.null(weights) && any(weights < 0)) 
       stop("negative weights not allowed")
-    NextMethod("coxpls")
+    NextMethod("coxspls_sgpls")
   }
 
 

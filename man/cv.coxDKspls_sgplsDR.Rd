@@ -180,7 +180,7 @@ Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
 
 #Should be run with a higher value of nt (at least 10)
-(cv.coxDKspls_sgplsDR.res=cv.coxDKspls_sgplsDR(list(x=X_train_micro,time=Y_train_micro,status=C_train_micro),nt=3))
+(cv.coxDKspls_sgplsDR.res=cv.coxDKspls_sgplsDR(list(x=X_train_micro,time=Y_train_micro,status=C_train_micro),ind.block.x=c(3,10,15),nt=3))
 
 }
 \references{
