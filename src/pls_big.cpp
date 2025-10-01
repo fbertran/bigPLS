@@ -1,10 +1,25 @@
 #include <Rcpp.h>
-#include <bigmemory/BigMatrix.h>
-#include <bigmemory/MatrixAccessor.hpp>
-#include <cmath>
-#include <numeric>
+
+#if defined(__has_include)
+#  if __has_include(<bigmemory/BigMatrix.h>) &&                                 \
+      __has_include(<bigmemory/MatrixAccessor.hpp>)
+#    define BIGPLS_HAS_BIGMEMORY 1
+#  else
+#    define BIGPLS_HAS_BIGMEMORY 0
+#  endif
+#else
+#  define BIGPLS_HAS_BIGMEMORY 1
+#endif
 
 using namespace Rcpp;
+
+#if BIGPLS_HAS_BIGMEMORY
+
+#include <bigmemory/BigMatrix.h>
+#include <bigmemory/MatrixAccessor.hpp>
+#include <algorithm>
+#include <cmath>
+#include <numeric>
 
 namespace {
 
@@ -321,4 +336,16 @@ Rcpp::List pls_big_cpp(SEXP xpMat, const NumericMatrix &Y, int ncomp,
                       _["Yloadings"] = Qmat,
                       _["coefficients"] = B);
 }
+
+#else  // BIGPLS_HAS_BIGMEMORY
+
+// [[Rcpp::export]]
+Rcpp::List pls_big_cpp(SEXP /*xpMat*/, const NumericMatrix & /*Y*/, int /*ncomp*/,
+                       double /*tol*/ , int /*max_iter*/) {
+  stop("bigmemory headers are not available. Install the bigmemory package "
+       "to use pls_big(); the R fallback matrixpls_stream_bigmatrix() "
+       "remains available.");
+}
+
+#endif  // BIGPLS_HAS_BIGMEMORY
 
