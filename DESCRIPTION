@@ -20,6 +20,6 @@ URL: http://fbertran.github.io/bigPLS/, https://github.com/fbertran/bigPLS/
 BugReports: https://github.com/fbertran/bigPLS/issues/
 LinkingTo: Rcpp, bigmemory
 Classification/MSC: 62N01, 62N02, 62N03, 62N99
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Config/testthat/edition: 3
 SystemRequirements: C++11
