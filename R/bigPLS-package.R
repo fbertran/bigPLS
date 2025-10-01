@@ -14,6 +14,8 @@
 #' @importFrom stats as.formula is.empty.model model.matrix model.response model.weights rexp runif var
 # #' @importFrom utils head
 #' @import bigmemory
+#' @useDynLib bigPLS, .registration = TRUE
+#' @importFrom Rcpp evalCpp
 #' @import bigalgebra
 #' 
 #' @examples

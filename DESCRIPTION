@@ -3,9 +3,10 @@ Version: 0.4.0
 Date: 2025-09-09
 Depends: R (>= 3.5.0)
 biocViews:
-Imports: survival, plsRcox, rms, sgPLS, bigmemory, bigalgebra, bigSurvSGD
-Enhances: 
-Suggests: 
+Imports: survival, plsRcox, rms, sgPLS, bigmemory, bigalgebra, bigSurvSGD,
+    Rcpp
+Enhances:
+Suggests: testthat (>= 3.0.0)
 Title: Partial Least Squares Regression and their extension for big data 
 Authors@R: c(
 	person(given = "Frederic", family= "Bertrand", role = c("cre", "aut"), email = "frederic.bertrand@lecnam.net", comment = c(ORCID = "0000-0002-0837-8281")),
@@ -17,5 +18,8 @@ License: GPL-3
 Encoding: UTF-8
 URL: http://fbertran.github.io/bigPLS/, https://github.com/fbertran/bigPLS/
 BugReports: https://github.com/fbertran/bigPLS/issues/
+LinkingTo: Rcpp, bigmemory
 Classification/MSC: 62N01, 62N02, 62N03, 62N99
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.2
+Config/testthat/edition: 3
+SystemRequirements: C++11
