@@ -1,4 +1,4 @@
-#' Title
+#' Adapt bigSurvSGD to use na.omit
 #'
 #' @param formula 
 #' @param data 
@@ -38,7 +38,14 @@
 #' @param type 
 #'
 #' @return
+#' coef: Log of hazards ratio. If no inference is used, it returns a vector for estimated coefficients: If inference is used, it returns a matrix including estimates and confidence intervals of coefficients. In case of penalization, it resturns a matrix with columns corresponding to lambdas.
+#' coef.exp: Exponentiated version of coef (hazards ratio).
+#' lambda: Returns lambda(s) used for penalizarion.
+#' alpha: Returns alpha used for penalizarion.
+#' features.mean: Returns means of features, if given or calculated
+#' features.sd: Returns standard deviations of features, if given or calculated.
 #' @export
+#' @seealso See Also \code{\link[bigSurvSGD]{bigSurvSGDbigSurvSGD}}
 #'
 #' @examples
 #' #' set.seed(314)
@@ -510,6 +517,9 @@ bigSurvSGD.na.omit <- function (formula = Surv(time = time, status = status) ~ .
 #' @param inf.mth 
 #'
 #' @return
+#' coefres: Log of hazards ratio. If no inference is used, it returns a vector for estimated coefficients: If inference is used, it returns a matrix including estimates and confidence intervals of coefficients. In case of penalization, it resturns a matrix with columns corresponding to lambdas.
+#' 
+#' @seealso See Also \code{\link[bigSurvSGD]{bigSurvSGDbigSurvSGD}}
 #' @export
 #'
 #' @examples

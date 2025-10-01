@@ -2,7 +2,7 @@
 % Please edit documentation in R/cv.coxDKgplsDR.R
 \name{cv.coxDKgplsDR}
 \alias{cv.coxDKgplsDR}
-\title{Cross-validating a DKgplsDR-Model}
+\title{Cross-validating a Direct Kernel group PLS model fitted on the (Deviance) Residuals}
 \usage{
 cv.coxDKgplsDR(
   data,

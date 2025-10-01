@@ -1,4 +1,4 @@
-#' Cross-validating a DKsgplsDR-Model
+#' Cross-validating a Direct Kernel group sparse PLS model fitted on the (Deviance) Residuals
 #' 
 #' This function cross-validates \link{coxDKsgplsDR} models.\cr
 #' 

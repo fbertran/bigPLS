@@ -1,4 +1,4 @@
-#' Cross-validating a Cox-Model fitted on sparse group PLSR components
+#' Cross-validating a Cox-Model fitted on sparse group PLSR components using (Deviance) Residuals
 #' 
 #' This function cross-validates \link{coxsgplsDR} models.\cr
 #' 

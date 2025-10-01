@@ -1,4 +1,4 @@
-#' Fitting a Cox-Model on group sparse PLSR components
+#' Fitting a Cox-Model on group sparse PLSR components using the (Deviance) Residuals
 #' 
 #' This function computes the Cox Model based on PLSR components computed model
 #' with \itemize{\item as the response: the Survival time \item as explanatory

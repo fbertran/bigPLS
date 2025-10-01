@@ -28,7 +28,7 @@ partialbigSurvSGDv0(
 \item{inf.mth}{}
 }
 \value{
-
+coefres: Log of hazards ratio. If no inference is used, it returns a vector for estimated coefficients: If inference is used, it returns a matrix including estimates and confidence intervals of coefficients. In case of penalization, it resturns a matrix with columns corresponding to lambdas.
 }
 \description{
 Title
@@ -38,4 +38,7 @@ Title
 1+1
 
 
+}
+\seealso{
+See Also \code{\link[bigSurvSGD]{bigSurvSGDbigSurvSGD}}
 }

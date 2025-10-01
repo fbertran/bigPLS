@@ -2,7 +2,7 @@
 % Please edit documentation in R/bigSurvSGD.na.omit.R
 \name{bigSurvSGD.na.omit}
 \alias{bigSurvSGD.na.omit}
-\title{Title}
+\title{Adapt bigSurvSGD to use na.omit}
 \usage{
 bigSurvSGD.na.omit(
   formula = Surv(time = time, status = status) ~ .,
@@ -117,13 +117,21 @@ bigSurvSGD.na.omit(
 \item{type}{}
 }
 \value{
-
+coef: Log of hazards ratio. If no inference is used, it returns a vector for estimated coefficients: If inference is used, it returns a matrix including estimates and confidence intervals of coefficients. In case of penalization, it resturns a matrix with columns corresponding to lambdas.
+coef.exp: Exponentiated version of coef (hazards ratio).
+lambda: Returns lambda(s) used for penalizarion.
+alpha: Returns alpha used for penalizarion.
+features.mean: Returns means of features, if given or calculated
+features.sd: Returns standard deviations of features, if given or calculated.
 }
 \description{
-Title
+Adapt bigSurvSGD to use na.omit
 }
 \examples{
 #' set.seed(314)
 library(sim_data)
 
+}
+\seealso{
+See Also \code{\link[bigSurvSGD]{bigSurvSGDbigSurvSGD}}
 }

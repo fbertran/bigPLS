@@ -303,7 +303,7 @@ resultsBigscale <- bigscale(formula=Surv(time, status)~.,data=survData, parallel
 resultsBigscale
 
 # Simulated survival data to be read off the memory
-data(survData) # a dataset with 1000 observations (rows) and 10 features (columns)
+data(survData, package="bigSurvSGD") # a dataset with 1000 observations (rows) and 10 features (columns)
 # Save dataset survSGD as bigSurvSGD to be read chunk-by-chunk off the memory 
 write.csv(survData, file.path(tempdir(), "bigSurvData.csv"), row.names = FALSE) 
 dataPath <- file.path(tempdir(), "bigSurvData.csv") # path to where data is
@@ -320,13 +320,13 @@ resultsBigscaleSparse
 
 
 # Simulated survival data - just estimation and no confidence interval
-data(survData) # a dataset with 1000 observations (rows) and 10 features (columns)
+data(survData, package="bigSurvSGD") # a dataset with 1000 observations (rows) and 10 features (columns)
 resultsBig <- bigSurvSGD::bigSurvSGD(formula=Surv(time, status)~.,data=survData, inference.method="none",
 parallel.flag=TRUE, num.cores=2, features.mean = resultsBigscale$features.mean, features.sd = resultsBigscale$features.sd)
 (resultsBig$coef)
 
 # Simulated survival data to be read off the memory
-data(survData) # a dataset with 1000 observations (rows) and 10 features (columns)
+data(survData, package="bigSurvSGD") # a dataset with 1000 observations (rows) and 10 features (columns)
 # Save dataset survSGD as bigSurvSGD to be read chunk-by-chunk off the memory 
 write.csv(survData, file.path(tempdir(), "bigSurvData.csv"), row.names = FALSE) 
 dataPath <- file.path(tempdir(), "bigSurvData.csv") # path to where data is
@@ -336,14 +336,24 @@ bigmemory.flag=TRUE, parallel.flag=TRUE, num.cores=2, features.mean = resultsBig
 
 
 # Simulated sparse survival data
-data(sparseSurvData) # a sparse data with 100 observations (rows) and 150 features (columns)
+data(survData, package="bigSurvSGD") # a sparse data with 100 observations (rows) and 150 features (columns)
 resultsBigSparse <- bigSurvSGD::bigSurvSGD(formula=Surv(time, status)~.,data=sparseSurvData, 
 alpha=0.9, lambda=0.1, features.mean = resultsBigscale$features.mean, features.sd = resultsBigscale$features.sd)
 (resultsBigSparse$coef)
 ```
 
 
-```{r}
+# Still some work to do
+
+## regular PLS
+Todo
+
+## glm PLS
+Todo
+
+## bigPLS for PLS-based Cox models as in plsRcox
+
+```{r, eval=FALSE}
 #data(survData, package = "bigSurvSGD")
 #survData[2,3] <- NA
 #write.csv(survData, "~/Documents/GitHub/bigPLS/bigSurvData.csv", row.names = FALSE) 
@@ -390,8 +400,7 @@ https://stackoverflow.com/questions/49959260/removing-columns-from-big-matrix-wh
 
 
 
-```{r}
-
+```{r, eval=FALSE}
 # Simulated survival data - just estimation and no confidence interval
 data(survData) # a dataset with 1000 observations (rows) and 10 features (columns)
 
@@ -405,13 +414,7 @@ parallel.flag=TRUE, num.cores=2, features.mean = resultsBigscale$features.mean, 
 
 
 
-
-
-
-
-
-
-```{r}
+```{r, eval=FALSE}
 #install.packages("bigstatsr")
 library(bigstatsr)
 library(bigassertr)
@@ -442,31 +445,12 @@ X <- big_attachExtdata()
 test <- big_parallelize(X, p.FUN = partialbigSurvSGD, p.combine = 'rbind', ncores = 2)
 ```
 
+## imputePLS
 
+## Derive the final fit of the model.
 
-# TODO
-
-## bigPLS
-PLS regression (linear) or generalized linear regression (glm) for big data
-
-
-## Cox
-
-plsRcox
-
-## regular PLS
-  
-## glm PLS
-
-  
-imputePLS
-
-
-Final fit of the model.
-
-# big data Cox (via SGD)
+### big data Cox (via SGD)
 bigSurvSGD
 
-
-# SGD cox
+### SGD cox
 coxphSGD

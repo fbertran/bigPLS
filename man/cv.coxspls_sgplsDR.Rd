@@ -2,7 +2,7 @@
 % Please edit documentation in R/cv.coxspls_sgplsDR.R
 \name{cv.coxspls_sgplsDR}
 \alias{cv.coxspls_sgplsDR}
-\title{Cross-validating a Cox-Model fitted on sparse PLSR components}
+\title{Cross-validating a Cox-Model fitted on sparse PLSR components components using (Deviance) Residuals}
 \usage{
 cv.coxspls_sgplsDR(
   data,

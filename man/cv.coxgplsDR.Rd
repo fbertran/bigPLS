@@ -2,7 +2,7 @@
 % Please edit documentation in R/cv.coxgplsDR.R
 \name{cv.coxgplsDR}
 \alias{cv.coxgplsDR}
-\title{Cross-validating a plsDR-Model}
+\title{Cross-validating a Cox-Model fitted on group PLSR components using (Deviance) Residuals}
 \usage{
 cv.coxgplsDR(
   data,
@@ -163,7 +163,7 @@ computation was completed and \code{FALSE} it is failed.}
 computation, for each fold, each component and error criterion.}
 }
 \description{
-This function cross-validates \link{coxgpls} models.\cr
+This function cross-validates \link{coxgplsDR} models.\cr
 }
 \details{
 It only computes the recommended iAUCSurvROC criterion. Set

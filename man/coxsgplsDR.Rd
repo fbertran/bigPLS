@@ -4,7 +4,7 @@
 \alias{coxsgplsDR}
 \alias{coxsgplsDR.default}
 \alias{coxsgplsDR.formula}
-\title{Fitting a Cox-Model on group sparse PLSR components}
+\title{Fitting a Cox-Model on group sparse PLSR components using the (Deviance) Residuals}
 \usage{
 coxsgplsDR(Xplan, ...)
 

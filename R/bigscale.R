@@ -15,6 +15,17 @@
 #' @param type 
 #'
 #' @return
+#'   an object of the scaler class
+#'   time.indices: indices of the time variable
+#'   cens.indices: indices of the censored variables 
+#'   features.indices: indices of the features 
+#'   time.sd: standard deviation of the time variable
+#'   time.mean: mean of the time variable
+#'   features.sd: standard deviation of the features
+#'   features.mean: mean of the features
+#'   nr: number of rows
+#'   nc: number of columns
+#'   col.names: columns names
 #' @export
 #'
 #' @examples

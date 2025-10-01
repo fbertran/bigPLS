@@ -186,7 +186,6 @@ round(pred.fit$Beta,3)
 ```{r, eval=FALSE}
 bigscale
 data(survData, package="bigSurvSGD")
-debug(bigscale)
 resultsBig <- bigscale(data=survData, parallel.flag=TRUE, num.cores=2)
 resultsBig
 ```

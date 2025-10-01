@@ -1,6 +1,6 @@
-#' Cross-validating a plsDR-Model
+#' Cross-validating a Cox-Model fitted on group PLSR components using (Deviance) Residuals
 #' 
-#' This function cross-validates \link{coxgpls} models.\cr
+#' This function cross-validates \link{coxgplsDR} models.\cr
 #' 
 #' It only computes the recommended iAUCSurvROC criterion. Set
 #' \code{allCVcrit=TRUE} to retrieve the 13 other ones.
