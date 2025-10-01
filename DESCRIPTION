@@ -1,6 +1,6 @@
 Package: bigPLS
-Version: 0.4.0
-Date: 2025-09-09
+Version: 0.5.0
+Date: 2025-10-01
 Depends: R (>= 3.5.0)
 biocViews:
 Imports: survival, plsRcox, rms, sgPLS, bigmemory, bigalgebra, bigSurvSGD,
@@ -16,7 +16,7 @@ Maintainer: Frederic Bertrand <frederic.bertrand@lecnam.net>
 Description: Provides Partial least squares Regression and various regular, sparse or kernel, techniques for fitting regular, generalized linear and Cox models for big data.
 License: GPL-3
 Encoding: UTF-8
-URL: http://fbertran.github.io/bigPLS/, https://github.com/fbertran/bigPLS/
+URL: https://fbertran.github.io/bigPLS/, https://github.com/fbertran/bigPLS/
 BugReports: https://github.com/fbertran/bigPLS/issues/
 LinkingTo: Rcpp, bigmemory
 Classification/MSC: 62N01, 62N02, 62N03, 62N99
