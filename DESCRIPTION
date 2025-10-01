@@ -18,7 +18,9 @@ License: GPL-3
 Encoding: UTF-8
 URL: https://fbertran.github.io/bigPLS/, https://github.com/fbertran/bigPLS/
 BugReports: https://github.com/fbertran/bigPLS/issues/
-LinkingTo: Rcpp, bigmemory
+LinkingTo: Rcpp, 
+           bigmemory, 
+           BH
 Classification/MSC: 62N01, 62N02, 62N03, 62N99
 RoxygenNote: 7.3.3
 Config/testthat/edition: 3
