@@ -51,7 +51,8 @@ inline NumericVector compute_x_vec(MatrixAccessor<double> &acc,
 
 inline NumericVector deflate_xt(const NumericMatrix &Tprev,
                                 const NumericMatrix &Pprev,
-                                const NumericVector &vec, int k) {
+                                const NumericVector &vec,
+                                const NumericVector &score, int k) {
   if (k == 0) {
     return NumericVector(vec);
   }
@@ -61,7 +62,7 @@ inline NumericVector deflate_xt(const NumericMatrix &Tprev,
   for (int comp = 0; comp < k; ++comp) {
     double sum = 0.0;
     for (std::size_t row = 0; row < n; ++row) {
-      sum += Tprev(row, comp) * vec[row];
+      sum += Tprev(row, comp) * score[row];
     }
     t_cross[comp] = sum;
   }
@@ -78,7 +79,8 @@ inline NumericVector deflate_xt(const NumericMatrix &Tprev,
 
 inline NumericVector deflate_xw(const NumericMatrix &Tprev,
                                 const NumericMatrix &Pprev,
-                                const NumericVector &vec, int k) {
+                                const NumericVector &vec,
+                                const NumericVector &weights, int k) {
   if (k == 0) {
     return NumericVector(vec);
   }
@@ -88,7 +90,7 @@ inline NumericVector deflate_xw(const NumericMatrix &Tprev,
   for (int comp = 0; comp < k; ++comp) {
     double sum = 0.0;
     for (std::size_t col = 0; col < p; ++col) {
-      sum += Pprev(col, comp) * vec[col];
+      sum += Pprev(col, comp) * weights[col];
     }
     p_cross[comp] = sum;
   }
@@ -105,7 +107,8 @@ inline NumericVector deflate_xw(const NumericMatrix &Tprev,
 
 inline NumericVector deflate_Yt(const NumericMatrix &Tprev,
                                 const NumericMatrix &Qprev,
-                                const NumericVector &vec, int k) {
+                                const NumericVector &vec,
+                                const NumericVector &score, int k) {
   if (k == 0) {
     return NumericVector(vec);
   }
@@ -115,7 +118,7 @@ inline NumericVector deflate_Yt(const NumericMatrix &Tprev,
   for (int comp = 0; comp < k; ++comp) {
     double sum = 0.0;
     for (std::size_t row = 0; row < n; ++row) {
-      sum += Tprev(row, comp) * vec[row];
+      sum += Tprev(row, comp) * score[row];
     }
     t_cross[comp] = sum;
   }
@@ -132,7 +135,8 @@ inline NumericVector deflate_Yt(const NumericMatrix &Tprev,
 
 inline NumericVector deflate_Yq(const NumericMatrix &Tprev,
                                 const NumericMatrix &Qprev,
-                                const NumericVector &vec, int k) {
+                                const NumericVector &vec,
+                                const NumericVector &loadings, int k) {
   if (k == 0) {
     return NumericVector(vec);
   }
@@ -142,7 +146,7 @@ inline NumericVector deflate_Yq(const NumericMatrix &Tprev,
   for (int comp = 0; comp < k; ++comp) {
     double sum = 0.0;
     for (std::size_t col = 0; col < q; ++col) {
-      sum += Qprev(col, comp) * vec[col];
+      sum += Qprev(col, comp) * loadings[col];
     }
     q_cross[comp] = sum;
   }
@@ -234,7 +238,7 @@ Rcpp::List pls_big_cpp(SEXP xpMat, const NumericMatrix &Y, int ncomp,
       std::copy(u.begin(), u.end(), u_old.begin());
 
       NumericVector xtu = compute_xt_vec(accessor, n, p, u);
-      xtu = deflate_xt(Tmat, Pmat, xtu, k);
+      xtu = deflate_xt(Tmat, Pmat, xtu, u, k);
       double wnorm = std::sqrt(std::inner_product(xtu.begin(), xtu.end(), xtu.begin(), 0.0));
       if (wnorm == 0.0) {
         stop("Encountered zero variance direction when computing weights");
@@ -244,7 +248,7 @@ Rcpp::List pls_big_cpp(SEXP xpMat, const NumericMatrix &Y, int ncomp,
       }
 
       NumericVector Xw = compute_x_vec(accessor, n, p, wvec);
-      Xw = deflate_xw(Tmat, Pmat, Xw, k);
+      Xw = deflate_xw(Tmat, Pmat, Xw, wvec, k);
       std::copy(Xw.begin(), Xw.end(), tvec.begin());
       double tnorm2 = std::inner_product(tvec.begin(), tvec.end(), tvec.begin(), 0.0);
       if (tnorm2 == 0.0) {
@@ -259,7 +263,7 @@ Rcpp::List pls_big_cpp(SEXP xpMat, const NumericMatrix &Y, int ncomp,
         }
         ytt[col] = sum;
       }
-      ytt = deflate_Yt(Tmat, Qmat, ytt, k);
+      ytt = deflate_Yt(Tmat, Qmat, ytt, tvec, k);
       for (std::size_t idx = 0; idx < q; ++idx) {
         qvec[idx] = ytt[idx] / tnorm2;
       }
@@ -274,7 +278,7 @@ Rcpp::List pls_big_cpp(SEXP xpMat, const NumericMatrix &Y, int ncomp,
           u_new[row] += Y(row, col) * coeff;
         }
       }
-      u_new = deflate_Yq(Tmat, Qmat, u_new, k);
+      u_new = deflate_Yq(Tmat, Qmat, u_new, qvec, k);
       double qnorm2 = std::inner_product(qvec.begin(), qvec.end(), qvec.begin(), 0.0);
       if (qnorm2 > 0.0) {
         for (std::size_t row = 0; row < n; ++row) {
@@ -298,7 +302,7 @@ Rcpp::List pls_big_cpp(SEXP xpMat, const NumericMatrix &Y, int ncomp,
     }
 
     NumericVector xtt = compute_xt_vec(accessor, n, p, tvec);
-    xtt = deflate_xt(Tmat, Pmat, xtt, k);
+    xtt = deflate_xt(Tmat, Pmat, xtt, tvec, k);
     double tnorm2 = std::inner_product(tvec.begin(), tvec.end(), tvec.begin(), 0.0);
     for (std::size_t idx = 0; idx < p; ++idx) {
       Pmat(idx, k) = xtt[idx] / tnorm2;
