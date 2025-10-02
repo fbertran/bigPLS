@@ -7,8 +7,8 @@
 #' @aliases getIndic getIndicCV getIndicCViAUCSH getIndicCViAUCSurvROCTest
 #' correctp.cox spls.cox ust spls.dv pls.cox predict.pls.cox
 #' @author Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@math.unistra.fr}\cr
-#' \url{http://www-irma.u-strasbg.fr/~fbertran/}
+#' \email{frederic.bertrand@@lecnam.net}\cr
+#' \url{https://fbertran.github.io/homepage/}
 #' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic
 #' Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014).
 #' Proceedings of User2014!, Los Angeles, page 152.\cr
@@ -1108,7 +1108,7 @@ pls.cox=function(X, Y, ncomp = 2, mode = c("regression", "canonical", "invariant
   return(invisible(result))
 }
 
-
+#' @exportS3Method stats::predict
 predict.pls.cox=function(object, newdata, scale.X=TRUE, scale.Y=TRUE,...) 
 {
   if (missing(newdata)) 
@@ -1171,6 +1171,7 @@ predict.pls.cox=function(object, newdata, scale.X=TRUE, scale.Y=TRUE,...)
                         B.hat = B.hat)))
 }
 
+#' @exportS3Method stats::predict
 predict.gPLS=function (object, newdata, scale.X=TRUE, scale.Y=TRUE, ...) 
 {
   if (missing(newdata)) 
@@ -1234,6 +1235,7 @@ predict.gPLS=function (object, newdata, scale.X=TRUE, scale.Y=TRUE, ...)
                         B.hat = B.hat, betay = betay)))
 }
 
+#' @exportS3Method stats::predict
 predict.sPLS <- function (object, newdata, scale.X=TRUE, scale.Y=TRUE, ...) 
 {
   if (missing(newdata)) 
@@ -1297,6 +1299,7 @@ predict.sPLS <- function (object, newdata, scale.X=TRUE, scale.Y=TRUE, ...)
                         B.hat = B.hat, betay = betay)))
 }
 
+#' @exportS3Method stats::predict
 predict.sgPLS <- function (object, newdata, scale.X=TRUE, scale.Y=TRUE, ...) 
 {
   if (missing(newdata)) 

@@ -1,10 +1,21 @@
-#' @title bigPLS-package
+#' bigPLS-package
 #'
-#' @description Provides Partial least squares Regression for regular, generalized linear and Cox models for big data. It allows for missing data in the explanatory variables. Repeated k-fold cross-validation of such models using various criteria. Bootstrap confidence intervals constructions are also available.
+#' Provides Partial least squares Regression for regular, generalized linear and Cox models for big data. It allows for missing data in the explanatory variables. Repeated k-fold cross-validation of such models using various criteria. Bootstrap confidence intervals constructions are also available.
 #'
-#' @docType package
-#' @name bigPLS-package
+#' @aliases bigPLS-package bigPLS NULL
+#' 
 #' @references TODO
+#' 
+#' @seealso [pls_big()], [matrixpls_stream_bigmatrix()]
+#' 
+#' @examples
+#' set.seed(314)
+#' library(bigPLS)
+#' data(sim_data)
+#' head(sim_data)
+#' 
+"_PACKAGE"
+
 #' @import bigSurvSGD
 # #' @importFrom bigSurvSGD bigSurvSGD lambdaMaxC oneChunkC oneObsPlugingC
 # #' @importClassesFrom bigSurvSGD bigSurvSGD
@@ -17,13 +28,4 @@
 #' @useDynLib bigPLS, .registration = TRUE
 #' @importFrom Rcpp evalCpp
 #' @import bigalgebra
-#' 
-#' @examples
-#' set.seed(314)
-#' library(bigPLS)
-#' data(sim_data)
-#' head(sim_data)
-#' 
 NULL
-
-

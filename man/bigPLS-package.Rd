@@ -3,6 +3,7 @@
 \docType{package}
 \name{bigPLS-package}
 \alias{bigPLS-package}
+\alias{bigPLS}
 \title{bigPLS-package}
 \description{
 Provides Partial least squares Regression for regular, generalized linear and Cox models for big data. It allows for missing data in the explanatory variables. Repeated k-fold cross-validation of such models using various criteria. Bootstrap confidence intervals constructions are also available.
@@ -16,4 +17,16 @@ head(sim_data)
 }
 \references{
 TODO
+}
+\seealso{
+[pls_big()], [matrixpls_stream_bigmatrix()]
+}
+\author{
+\strong{Maintainer}: Frederic Bertrand \email{frederic.bertrand@lecnam.net} (\href{https://orcid.org/0000-0002-0837-8281}{ORCID})
+
+Authors:
+\itemize{
+  \item Myriam Maumy-Bertrand \email{myriam.maumy@ehesp.fr} (\href{https://orcid.org/0000-0002-4615-1512}{ORCID})
+}
+
 }

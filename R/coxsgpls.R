@@ -89,8 +89,8 @@
 #' \code{allres=TRUE} : \item{tt_sgpls}{PLSR components.} \item{cox_sgpls}{Final
 #' Cox-model.} \item{sgpls_mod}{The PLSR model.}
 #' @author Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@math.unistra.fr}\cr
-#' \url{http://www-irma.u-strasbg.fr/~fbertran/}
+#' \email{frederic.bertrand@@lecnam.net}\cr
+#' \url{https://fbertran.github.io/homepage/}
 #' @seealso \code{\link[survival]{coxph}}, \code{\link[sgPLS]{gPLS}}
 #' @references A group and Sparse Group Partial Least Square approach applied 
 #' in Genomics context, Liquet Benoit, Lafaye de Micheaux, Boris Hejblum, 

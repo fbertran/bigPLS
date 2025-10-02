@@ -1,35 +1,23 @@
 #include <Rcpp.h>
-
-#if defined(__has_include)
-#  if __has_include(<bigmemory/BigMatrix.h>) &&                                 \
-      __has_include(<bigmemory/MatrixAccessor.hpp>)
-#    define BIGPLS_HAS_BIGMEMORY 1
-#  else
-#    define BIGPLS_HAS_BIGMEMORY 0
-#  endif
-#else
-#  define BIGPLS_HAS_BIGMEMORY 1
-#endif
-
-using namespace Rcpp;
-
-#if BIGPLS_HAS_BIGMEMORY
-
 #include <bigmemory/BigMatrix.h>
 #include <bigmemory/MatrixAccessor.hpp>
 #include <algorithm>
 #include <cmath>
 #include <numeric>
 
+
+
+using namespace Rcpp;
+
 namespace {
 
-inline void check_double_matrix(const bigmemory::BigMatrix &mat) {
+inline void check_double_matrix(const BigMatrix &mat) {
   if (mat.matrix_type() != 8) {
     stop("Only double-precision big.matrix objects are supported");
   }
 }
 
-inline NumericVector compute_xt_vec(bigmemory::MatrixAccessor<double> &acc,
+inline NumericVector compute_xt_vec(MatrixAccessor<double> &acc,
                                     std::size_t n, std::size_t p,
                                     const NumericVector &vec) {
   NumericVector result(p);
@@ -44,7 +32,7 @@ inline NumericVector compute_xt_vec(bigmemory::MatrixAccessor<double> &acc,
   return result;
 }
 
-inline NumericVector compute_x_vec(bigmemory::MatrixAccessor<double> &acc,
+inline NumericVector compute_x_vec(MatrixAccessor<double> &acc,
                                    std::size_t n, std::size_t p,
                                    const NumericVector &weights) {
   NumericVector result(n);
@@ -213,8 +201,8 @@ Rcpp::List pls_big_cpp(SEXP xpMat, const NumericMatrix &Y, int ncomp,
   if (max_iter <= 0) {
     stop("max_iter must be positive");
   }
-  XPtr<bigmemory::BigMatrix> xp(xpMat);
-  bigmemory::BigMatrix &mat = *xp;
+  XPtr<BigMatrix> xp(xpMat);
+  BigMatrix &mat = *xp;
   check_double_matrix(mat);
   std::size_t n = mat.nrow();
   std::size_t p = mat.ncol();
@@ -226,7 +214,7 @@ Rcpp::List pls_big_cpp(SEXP xpMat, const NumericMatrix &Y, int ncomp,
     stop("X and Y must have positive dimensions");
   }
   int comps = std::min<int>(ncomp, std::min<int>(n, p));
-  bigmemory::MatrixAccessor<double> accessor(mat);
+  MatrixAccessor<double> accessor(mat);
 
   NumericMatrix Tmat(n, comps);
   NumericMatrix Umat(n, comps);
@@ -337,15 +325,5 @@ Rcpp::List pls_big_cpp(SEXP xpMat, const NumericMatrix &Y, int ncomp,
                       _["coefficients"] = B);
 }
 
-#else  // BIGPLS_HAS_BIGMEMORY
 
-// [[Rcpp::export]]
-Rcpp::List pls_big_cpp(SEXP /*xpMat*/, const NumericMatrix & /*Y*/, int /*ncomp*/,
-                       double /*tol*/ , int /*max_iter*/) {
-  stop("bigmemory headers are not available. Install the bigmemory package "
-       "to use pls_big(); the R fallback matrixpls_stream_bigmatrix() "
-       "remains available.");
-}
-
-#endif  // BIGPLS_HAS_BIGMEMORY
 

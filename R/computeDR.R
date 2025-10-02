@@ -43,8 +43,8 @@
 #'
 #' @return Residuals from a null model fit.
 #' @author Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@math.unistra.fr}\cr
-#' \url{http://www-irma.u-strasbg.fr/~fbertran/}
+#' \email{frederic.bertrand@@lecnam.net}\cr
+#' \url{https://fbertran.github.io/homepage/}
 #' @seealso \code{\link[survival]{coxph}}
 #' @references TODO
 #' 
