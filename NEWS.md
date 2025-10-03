@@ -1,4 +1,4 @@
-# bigPLS 0.4.0 
+# bigPLScox 0.4.0 
 
 * Maintainer email update
 * Added unit tests

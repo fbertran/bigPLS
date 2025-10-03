@@ -13,21 +13,14 @@ knitr::opts_chunk$set(
 )
 ```
 
-# bigPLS <img src="man/figures/logo.png" align="right" width="200"/>
+# bigPLS <img src="man/figures/logo_bigPLS.svg" align="right" width="200"/>
 
 # bigPLS, PLS models and their extension for big data in R
 ## Frédéric Bertrand and Myriam Maumy-Bertrand
 
 <!-- badges: start -->
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![R-CMD-check](https://github.com/fbertran/bigPLS/workflows/R-CMD-check/badge.svg)](https://github.com/fbertran/bigPLS/actions)
-[![Codecov test coverage](https://codecov.io/gh/fbertran/bigPLS/branch/master/graph/badge.svg)](https://codecov.io/gh/fbertran/bigPLS?branch=master)
-[![CRAN status](https://www.r-pkg.org/badges/version/bigPLS)](https://cran.r-project.org/package=bigPLS)
-[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/bigPLS)](https://cran.r-project.org/package=bigPLS)
-[![GitHub Repo stars](https://img.shields.io/github/stars/fbertran/bigPLS?style=social)](https://github.com/fbertran/bigPLS)
-[![DOI](https://zenodo.org/badge/18454102.svg)](https://zenodo.org/badge/latestdoi/18454102)
 [![R-CMD-check](https://github.com/fbertran/bigPLS/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/fbertran/bigPLS/actions/workflows/R-CMD-check.yaml)
+[![R-hub](https://github.com/fbertran/bigPLS/actions/workflows/rhub.yaml/badge.svg)](https://github.com/fbertran/bigPLS/actions/workflows/rhub.yaml)
 <!-- badges: end -->
 
 
