@@ -131,9 +131,9 @@ predictors (<\code{alpha.pvals.expli}) are found}
 
 \item{model_matrix}{If \code{TRUE}, the model matrix is returned.}
 
-\item{contrasts.arg}{a list, whose entries are values (numeric matrices, 
-functions or character strings naming functions) to be used as replacement 
-values for the contrasts replacement function and whose names are the names 
+\item{contrasts.arg}{a list, whose entries are values (numeric matrices,
+functions or character strings naming functions) to be used as replacement
+values for the contrasts replacement function and whose names are the names
 of columns of data containing factors.}
 }
 \value{

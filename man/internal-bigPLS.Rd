@@ -12,7 +12,7 @@
 \alias{spls.dv}
 \alias{pls.cox}
 \alias{predict.pls.cox}
-\title{Internal bigPLS functions}
+\title{Internal bigPLScox functions}
 \description{
 These are not to be called by the user.
 }

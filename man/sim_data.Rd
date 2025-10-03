@@ -6,27 +6,27 @@
 \title{Simulated dataset}
 \format{
 A data frame with 1000 observations on the following 11 variables.
-\describe{ 
-\item{status}{a binary vector} 
-\item{X1}{a numeric vector} 
-\item{X2}{a numeric vector} 
-\item{X3}{a numeric vector} 
-\item{X4}{a numeric vector} 
-\item{X5}{a numeric vector} 
-\item{X6}{a numeric vector} 
-\item{X7}{a numeric vector} 
-\item{X8}{a numeric vector} 
-\item{X9}{a numeric vector} 
-\item{X10}{a numeric vector} 
+\describe{
+\item{status}{a binary vector}
+\item{X1}{a numeric vector}
+\item{X2}{a numeric vector}
+\item{X3}{a numeric vector}
+\item{X4}{a numeric vector}
+\item{X5}{a numeric vector}
+\item{X6}{a numeric vector}
+\item{X7}{a numeric vector}
+\item{X8}{a numeric vector}
+\item{X9}{a numeric vector}
+\item{X10}{a numeric vector}
 }
 
 A data frame with 10000 observations on the following 5 variables.
-\describe{ 
-\item{id}{an integer vector} 
-\item{time}{a numeric vector} 
-\item{status}{a binary vector} 
-\item{x.1}{a binary vector} 
-\item{x.2}{a binary vector} 
+\describe{
+\item{id}{an integer vector}
+\item{time}{a numeric vector}
+\item{status}{a binary vector}
+\item{x.1}{a binary vector}
+\item{x.2}{a binary vector}
 }
 }
 \description{

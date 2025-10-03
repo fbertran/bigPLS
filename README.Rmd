@@ -13,18 +13,18 @@ knitr::opts_chunk$set(
 )
 ```
 
-# bigPLS <img src="man/figures/logo_bigPLS.svg" align="right" width="200"/>
+# bigPLScox <img src="man/figures/logo_bigPLS.svg" align="right" width="200"/>
 
-# bigPLS, PLS models and their extension for big data in R
+# bigPLScox, PLS models and their extension for big data in R
 ## Frédéric Bertrand and Myriam Maumy-Bertrand
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/fbertran/bigPLS/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/fbertran/bigPLS/actions/workflows/R-CMD-check.yaml)
-[![R-hub](https://github.com/fbertran/bigPLS/actions/workflows/rhub.yaml/badge.svg)](https://github.com/fbertran/bigPLS/actions/workflows/rhub.yaml)
+[![R-CMD-check](https://github.com/fbertran/bigPLScox/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/fbertran/bigPLScox/actions/workflows/R-CMD-check.yaml)
+[![R-hub](https://github.com/fbertran/bigPLScox/actions/workflows/rhub.yaml/badge.svg)](https://github.com/fbertran/bigPLScox/actions/workflows/rhub.yaml)
 <!-- badges: end -->
 
 
-The goal of bigPLS is provide Cox models in a high dimensional setting in R.
+The goal of bigPLScox is provide Cox models in a high dimensional setting in R.
 
 
 
@@ -35,13 +35,13 @@ This website and these examples were created by F. Bertrand and M. Maumy-Bertran
 
 ## Installation
 
-You can install the released version of bigPLS from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of bigPLScox from [CRAN](https://CRAN.R-project.org) with:
 
 ```{r, eval = FALSE}
 install.packages("bigPLS")
 ```
 
-You can install the development version of bigPLS from [github](https://github.com) with:
+You can install the development version of bigPLScox from [github](https://github.com) with:
 
 ```{r, eval = FALSE}
 devtools::install_github("fbertran/bigPLS")
@@ -81,7 +81,7 @@ head(computeDR(Y_train_micro,C_train_micro,plot=TRUE))
 
 ```{r simdata}
 set.seed(4669)
-library(bigPLS)
+library(bigPLScox)
 x_sim <- matrix(sample(0:1, size = 20000, replace = TRUE), ncol = 2)
 dCox_sim <- dataCox(10^4, lambda = 3, rho = 2, x_sim,
 beta = c(1,3), cens.rate = 5)
@@ -345,15 +345,15 @@ Todo
 ## glm PLS
 Todo
 
-## bigPLS for PLS-based Cox models as in plsRcox
+## bigPLScox for PLS-based Cox models as in plsRcox
 
 ```{r, eval=FALSE}
 #data(survData, package = "bigSurvSGD")
 #survData[2,3] <- NA
-#write.csv(survData, "~/Documents/GitHub/bigPLS/bigSurvData.csv", row.names = FALSE) 
-datapath0_NA = path.expand("~/Documents/GitHub/bigPLS/add_data/bigSurvData_NA.csv")
+#write.csv(survData, "~/Documents/GitHub/bigPLScox/bigSurvData.csv", row.names = FALSE) 
+datapath0_NA = path.expand("~/Documents/GitHub/bigPLScox/add_data/bigSurvData_NA.csv")
 
-library(bigPLS)
+library(bigPLScox)
 if(FALSE){
 resultsBigscale <- bigscale(formula=Surv(time, status)~., data=datapath0_NA,bigmemory.flag=TRUE, parallel.flag=TRUE, num.cores=2)
 resultsBigscale
@@ -374,9 +374,9 @@ simplify2array(lapply(name.col.all,partialbigSurvSGDv0, datapath=datapath0_NA, r
 #install.packages("bigalgebra")
 #library("bigalgebra")
 
-datapath0 = path.expand("~/Documents/GitHub/bigPLS/add_data/bigSurvData.csv")
+datapath0 = path.expand("~/Documents/GitHub/bigPLScox/add_data/bigSurvData.csv")
 
-library(bigPLS)
+library(bigPLScox)
 
 debug(bigPLS:::bigplsRcoxmodel.default)
 
@@ -384,9 +384,9 @@ debug(bigPLS:::bigplsRcoxmodel.default)
 
 bigPLS::bigplsRcox(formula=Surv(time, status)~.,data=datapath0,verbose=TRUE)
 
-bigPLS::bigplsRcox(formula=Surv(time, status)~.,data=datapath0, backingfile="temp_plsRcox_file2.bin", backingpath=path.expand("~/Documents/GitHub/bigPLS/add_data/"),  descriptorfile="temp_plsRcox_file2.desc",verbose=TRUE)
+bigPLS::bigplsRcox(formula=Surv(time, status)~.,data=datapath0, backingfile="temp_plsRcox_file2.bin", backingpath=path.expand("~/Documents/GitHub/bigPLScox/add_data/"),  descriptorfile="temp_plsRcox_file2.desc",verbose=TRUE)
 
-bigPLS::bigplsRcox(formula=Surv(time, status)~.,data=NULL,descriptorfile="temp_plsRcox_file.desc", backingpath=path.expand("~/Documents/GitHub/bigPLS/add_data/"),verbose=TRUE)
+bigPLS::bigplsRcox(formula=Surv(time, status)~.,data=NULL,descriptorfile="temp_plsRcox_file.desc", backingpath=path.expand("~/Documents/GitHub/bigPLScox/add_data/"),verbose=TRUE)
 ```
 
 https://stackoverflow.com/questions/49959260/removing-columns-from-big-matrix-which-have-only-one-value

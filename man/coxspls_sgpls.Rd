@@ -112,7 +112,7 @@ not supplied, min(7,maximal number) components is used.}
 matching one of "regression", "canonical". See
 \code{\link[sgPLS]{gPLS}} for details}
 
-\item{keepX}{numeric vector of length ncomp, the number of variables to keep 
+\item{keepX}{numeric vector of length ncomp, the number of variables to keep
 in X-loadings. By default all variables are kept in the model.}
 
 \item{plot}{Should the survival function be plotted ?)}
@@ -136,15 +136,15 @@ fitting process. Should be \code{NULL} or a numeric vector.}
 
 \item{model_matrix}{If \code{TRUE}, the model matrix is returned.}
 
-\item{contrasts.arg}{a list, whose entries are values (numeric matrices, 
-functions or character strings naming functions) to be used as replacement 
-values for the contrasts replacement function and whose names are the names 
+\item{contrasts.arg}{a list, whose entries are values (numeric matrices,
+functions or character strings naming functions) to be used as replacement
+values for the contrasts replacement function and whose names are the names
 of columns of data containing factors.}
 
-\item{ind.block.x}{a vector of integers describing the grouping of the 
-X-variables. \code{ind.block.x <- c(3,10,15)} means that \code{X} is 
-structured into 4 groups: \code{X1} to \code{X3}; \code{X4} to \code{X10}, 
-\code{X11} to \code{X15} and \code{X16} to \code{Xp} where \code{p} is the 
+\item{ind.block.x}{a vector of integers describing the grouping of the
+X-variables. \code{ind.block.x <- c(3,10,15)} means that \code{X} is
+structured into 4 groups: \code{X1} to \code{X3}; \code{X4} to \code{X10},
+\code{X11} to \code{X15} and \code{X16} to \code{Xp} where \code{p} is the
 number of variables in the X matrix.}
 }
 \value{
@@ -185,8 +185,8 @@ rm(X_train_micro,Y_train_micro,C_train_micro,cox_spls_sgpls_fit)
 
 }
 \references{
-A group and Sparse Group Partial Least Square approach applied 
-in Genomics context, Liquet Benoit, Lafaye de Micheaux, Boris Hejblum, 
+A group and Sparse Group Partial Least Square approach applied
+in Genomics context, Liquet Benoit, Lafaye de Micheaux, Boris Hejblum,
 Rodolphe Thiebaut (2016). Bioinformatics.\cr
 
 Deviance residuals-based sparse PLS and sparse kernel PLS regression for
