@@ -1,5 +1,10 @@
 add_data
 
+.DS_Store
+src/*.o
+src/*.so
+src/*.dll
+
 # History files
 .Rhistory
 .Rapp.history
