@@ -1,4 +1,4 @@
 library(testthat)
-library(bigPLScox)
+library(bigPLS)
 
-test_check("bigPLScox")
+test_check("bigPLS")

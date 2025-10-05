@@ -78,7 +78,7 @@ library(bigsgPLS)
 ```
 
 
-## bigPLScox
+## bigPLS
 
 ```{r}
 library(plsRcox)

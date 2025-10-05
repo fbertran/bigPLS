@@ -2,7 +2,7 @@
 #'
 #' Provides Partial least squares Regression for regular, generalized linear and Cox models for big data. It allows for missing data in the explanatory variables. Repeated k-fold cross-validation of such models using various criteria. Bootstrap confidence intervals constructions are also available.
 #'
-#' @aliases bigPLS-package bigPLScox NULL
+#' @aliases bigPLS-package bigPLS NULL
 #' 
 #' @references TODO
 #' 
@@ -10,7 +10,7 @@
 #' 
 #' @examples
 #' set.seed(314)
-#' library(bigPLScox)
+#' library(bigPLS)
 #' data(sim_data)
 #' head(sim_data)
 #' 
@@ -26,7 +26,7 @@
 #' @importFrom stats as.formula is.empty.model model.matrix model.response model.weights rexp runif var
 # #' @importFrom utils head
 #' @import bigmemory
-#' @useDynLib bigPLScox, .registration = TRUE
+#' @useDynLib bigPLS, .registration = TRUE
 #' @importFrom Rcpp evalCpp
 #' @import bigalgebra
 NULL

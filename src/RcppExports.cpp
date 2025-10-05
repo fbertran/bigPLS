@@ -13,7 +13,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // big_pls_cox_col_stats_cpp
 List big_pls_cox_col_stats_cpp(SEXP xpMat);
-RcppExport SEXP _bigPLScox_big_pls_cox_col_stats_cpp(SEXP xpMatSEXP) {
+RcppExport SEXP _bigPLS_big_pls_cox_col_stats_cpp(SEXP xpMatSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -24,7 +24,7 @@ END_RCPP
 }
 // big_pls_cox_component_cpp
 List big_pls_cox_component_cpp(SEXP xpMat, NumericVector residuals, NumericMatrix scores_prev, NumericMatrix loadings_prev, NumericVector means, NumericVector sds);
-RcppExport SEXP _bigPLScox_big_pls_cox_component_cpp(SEXP xpMatSEXP, SEXP residualsSEXP, SEXP scores_prevSEXP, SEXP loadings_prevSEXP, SEXP meansSEXP, SEXP sdsSEXP) {
+RcppExport SEXP _bigPLS_big_pls_cox_component_cpp(SEXP xpMatSEXP, SEXP residualsSEXP, SEXP scores_prevSEXP, SEXP loadings_prevSEXP, SEXP meansSEXP, SEXP sdsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -40,7 +40,7 @@ END_RCPP
 }
 // big_pls_cox_gd_cpp
 Rcpp::List big_pls_cox_gd_cpp(SEXP X_ptr, Rcpp::NumericVector time, Rcpp::NumericVector status, int ncomp, int max_iter, double tol, double learning_rate);
-RcppExport SEXP _bigPLScox_big_pls_cox_gd_cpp(SEXP X_ptrSEXP, SEXP timeSEXP, SEXP statusSEXP, SEXP ncompSEXP, SEXP max_iterSEXP, SEXP tolSEXP, SEXP learning_rateSEXP) {
+RcppExport SEXP _bigPLS_big_pls_cox_gd_cpp(SEXP X_ptrSEXP, SEXP timeSEXP, SEXP statusSEXP, SEXP ncompSEXP, SEXP max_iterSEXP, SEXP tolSEXP, SEXP learning_rateSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -57,13 +57,13 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_bigPLScox_big_pls_cox_col_stats_cpp", (DL_FUNC) &_bigPLScox_big_pls_cox_col_stats_cpp, 1},
-    {"_bigPLScox_big_pls_cox_component_cpp", (DL_FUNC) &_bigPLScox_big_pls_cox_component_cpp, 6},
-    {"_bigPLScox_big_pls_cox_gd_cpp", (DL_FUNC) &_bigPLScox_big_pls_cox_gd_cpp, 7},
+    {"_bigPLS_big_pls_cox_col_stats_cpp", (DL_FUNC) &_bigPLS_big_pls_cox_col_stats_cpp, 1},
+    {"_bigPLS_big_pls_cox_component_cpp", (DL_FUNC) &_bigPLS_big_pls_cox_component_cpp, 6},
+    {"_bigPLS_big_pls_cox_gd_cpp", (DL_FUNC) &_bigPLS_big_pls_cox_gd_cpp, 7},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_bigPLScox(DllInfo *dll) {
+RcppExport void R_init_bigPLS(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

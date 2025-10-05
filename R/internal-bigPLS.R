@@ -1,4 +1,4 @@
-#' @title Internal bigPLScox functions
+#' @title Internal bigPLS functions
 #' 
 #' @name internal-bigPLS
 #' 

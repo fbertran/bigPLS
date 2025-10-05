@@ -1,4 +1,4 @@
-Package: bigPLScox
+Package: bigPLS
 Version: 0.5.0
 Date: 2025-10-01
 Depends: R (>= 3.5.0)
@@ -20,8 +20,8 @@ Maintainer: Frederic Bertrand <frederic.bertrand@lecnam.net>
 Description: Provides Partial least squares Regression and various regular, sparse or kernel, techniques for fitting Cox models for big data. Provides a Partial Least Squares (PLS) algorithm adapted to Cox proportional hazards models that works with bigmemory matrices without loading the entire dataset in memory. Also implements a gradient-descent based solver for Cox proportional hazards models that works directly on 'bigmemory' matrices.
 License: GPL-3
 Encoding: UTF-8
-URL: https://fbertran.github.io/bigPLScox/, https://github.com/fbertran/bigPLScox/
-BugReports: https://github.com/fbertran/bigPLScox/issues/
+URL: https://fbertran.github.io/bigPLS/, https://github.com/fbertran/bigPLS/
+BugReports: https://github.com/fbertran/bigPLS/issues/
 Classification/MSC: 62N01, 62N02, 62N03, 62N99
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3

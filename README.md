@@ -3,18 +3,18 @@
 
 
 
-# bigPLScox <img src="man/figures/logo_bigPLS.svg" align="right" width="200"/>
+# bigPLS <img src="man/figures/logo_bigPLS.svg" align="right" width="200"/>
 
-# bigPLScox, PLS models and their extension for big data in R
+# bigPLS, PLS models and their extension for big data in R
 ## Frédéric Bertrand and Myriam Maumy-Bertrand
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/fbertran/bigPLScox/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/fbertran/bigPLScox/actions/workflows/R-CMD-check.yaml)
-[![R-hub](https://github.com/fbertran/bigPLScox/actions/workflows/rhub.yaml/badge.svg)](https://github.com/fbertran/bigPLScox/actions/workflows/rhub.yaml)
+[![R-CMD-check](https://github.com/fbertran/bigPLS/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/fbertran/bigPLS/actions/workflows/R-CMD-check.yaml)
+[![R-hub](https://github.com/fbertran/bigPLS/actions/workflows/rhub.yaml/badge.svg)](https://github.com/fbertran/bigPLS/actions/workflows/rhub.yaml)
 <!-- badges: end -->
 
 
-The goal of bigPLScox is provide Cox models in a high dimensional setting in R.
+The goal of bigPLS is provide Cox models in a high dimensional setting in R.
 
 
 
@@ -25,14 +25,14 @@ This website and these examples were created by F. Bertrand and M. Maumy-Bertran
 
 ## Installation
 
-You can install the released version of bigPLScox from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of bigPLS from [CRAN](https://CRAN.R-project.org) with:
 
 
 ``` r
 install.packages("bigPLS")
 ```
 
-You can install the development version of bigPLScox from [github](https://github.com) with:
+You can install the development version of bigPLS from [github](https://github.com) with:
 
 
 ``` r
@@ -76,7 +76,7 @@ head(computeDR(Y_train_micro,C_train_micro,plot=TRUE))
 
 ``` r
 set.seed(4669)
-library(bigPLScox)
+library(bigPLS)
 x_sim <- matrix(sample(0:1, size = 20000, replace = TRUE), ncol = 2)
 dCox_sim <- dataCox(10^4, lambda = 3, rho = 2, x_sim,
 beta = c(1,3), cens.rate = 5)
